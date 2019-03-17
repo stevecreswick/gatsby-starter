@@ -76,6 +76,34 @@ module.exports = {
     },
 
     /**
+     * NEW
+     * We are going to add a library folder that will have
+     * subfolders.  We will not use library in the path,
+     * we will use the sub folders in the path.
+     */
+
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `library`,
+        path: `${__dirname}/library/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      },
+    },
+
+    /**
+     * Parses Markdown files using Remark.
+     * @see {@link https://www.gatsbyjs.org/packages/gatsby-transformer-remark/}
+     */
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ['gatsby-remark-copy-linked-files', 'gatsby-remark-images', 'gatsby-remark-prismjs'],
+      },
+    },
+
+    /**
      * Gatsby Sharp
      * These plugins aim to provide excellent out-of-the box settings for processing common web image formats.
      * @see {@link https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/}
